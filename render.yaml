@@ -1,0 +1,20 @@
+# Blueprint de Render (plan gratuito). La base de datos NO va en Render: se usa Neon o Supabase (PostgreSQL + PostGIS).
+services:
+  - type: web
+    name: observatorio-precios-pac
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.14.0
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL        # cadena de conexion de Neon/Supabase (se pega en el panel de Render)
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DEMO_PASSWORD       # contrasena de las cuentas demo; Render la genera y la ves en Environment
+        generateValue: true

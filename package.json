@@ -1,0 +1,34 @@
+{
+  "name": "observatorio-precios-pac",
+  "version": "1.0.0",
+  "description": "Observatorio de Precios del comercio local - Pedro Aguirre Cerda (TIHI43, Unidad 3)",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "migrate": "node scripts/migrate.js",
+    "backup": "bash scripts/backup.sh",
+    "test": "node --test --test-concurrency=1 tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "csv-parse": "^7.0.3",
+    "dotenv": "^16.4.7",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "pdfkit": "^0.16.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "jsdom": "^31.0.1"
+  },
+  "overrides": {
+    "uuid": "^11.1.1"
+  }
+}
